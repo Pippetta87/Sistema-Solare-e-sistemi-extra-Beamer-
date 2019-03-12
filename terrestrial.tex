@@ -1,0 +1,90 @@
+\subsection{Overview terrestrial planets}
+
+%solarsystemmain-orbit: dps e i P% spin
+%solarsystemmain-pc: mass 	  rhomean Rp   gs  j2
+%solarsystemmain-th: A 	 Teff TeffA Tss  H	  atms
+%display columns/1/.style={column name={$r_{p\odot}(\SI{e8}{\kilo\meter})$},clear infinite},
+%display columns/2/.style={column name={$R_p\SI{e3}{\kilo\meter}$},clear infinite},
+%display columns/3/.style={column name={albedo},clear infinite},
+%display columns/4/.style={column name={$T_{eff,p}$},clear infinite},
+%display columns/5/.style={column name={$T_{eff,p}'$},clear infinite},
+%display columns/6/.style={column name={$T_{ss}$},clear infinite},
+%display columns/7/.style={column name={$m_V^{opp}$},clear infinite},
+%display columns/8/.style={column name={H},clear infinite},
+
+
+\begin{frame}{Caratteristiche principali}
+\begin{table}[!ht]
+\pgfplotstabletypeset[skip rows between index={4}{8},
+every head row/.style={
+ %before row={},
+ %every last row/.style={after row=\bottomrule},
+ after row={\midrule}
+},
+every 2 row/.style={after row=\midrule},
+every last row/.style={after row=\bottomrule},
+every first column/.style={column type/.add={|}{}},
+every last column/.style={column type/.add={}{|}},
+%columns/0/.style = {column type/.add={|}{}},
+%columns/5/.style = {column type/.add={|}{}},
+%columns/0/.style={string type},
+display columns/1/.style={column name={$r_{p\odot}(\SI{e8}{\kilo\meter})$},clear infinite},
+display columns/2/.style={column name={e},clear infinite},
+display columns/3/.style={column name={i},clear infinite},
+display columns/4/.style={column name={$\tau_{sid}$},clear infinite},
+display columns/5/.style={column name={obliquity},clear infinite},
+display columns/planets/.style={column name={pianeta},string type},
+create on use/planets/.style={create col/set list={Mercury, Venus, Earth, Mars}},
+columns/planets/.style={string type},
+columns={planets, dps, e, i, Ps, obl},
+/pgf/number format/precision=3
+     ]{solarsystemmain-orbit.txt} %%%
+%\captionof{table}{Caratteristiche pianeti terrestri.}\label{tab:terrestrial planets}
+\begin{itemize}
+\item Accretion of planetesimal
+\item Ratation depends upon fine details (i, e,\ldots)
+\end{itemize}
+\end{table}
+\end{frame}
+
+\begin{wordonframe}{Pianeti terrestri: overview}
+\begin{itemize}\item Hill interior/exterior orbits are symmetric: positive/negative angular momentum is equally likely
+\item Formation from planetesimal accretion; slow accretion deprived the regions from material to form satellites.
+\end{itemize}
+\end{wordonframe}
+
+\begin{block}{Resonances}
+Numerical simulations have suggested that the eventual formation of a perihelion secular resonance between Mercury and Jupiter has the potential to greatly increase Mercury's eccentricity and possibly destabilize the inner Solar System several billion years from now.
+\end{block}
+
+\subsection{Mercury}
+
+%\begin{frame}{Mercurio:}
+%\end{frame}
+%\begin{wordonframe}{struttura}
+%\end{wordonframe}
+
+\subsection{Venus}
+
+%\begin{frame}{Venus: Spin/runaway greenhouse}
+%\end{frame}
+%\begin{wordonframe}{struttura}
+%\end{wordonframe}
+
+\subsection{Sistema Terra-Luna}
+\begin{frame}{Sistema Terra/Luna}
+\tolbf
+Formation scenarios:
+\end{frame}
+
+\begin{wordonframe}{Terra/Luna}
+
+\end{wordonframe}
+
+\subsection{Marte}
+
+%\begin{frame}{Mars: satellites}
+%Phobos, Deimos: tidal evolution inward outward
+%\end{frame}
+%\begin{wordonframe}{struttura}
+%\end{wordonframe} 

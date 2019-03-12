@@ -1,0 +1,141 @@
+\section{Modello di pianeta}
+
+\subsection{Classificazione.}
+
+\begin{frame}{Sistema solare: pianeti.}
+\begin{table}[!ht]
+\pgfplotstabletypeset[every head row/.style={
+ %before row={},
+ %every last row/.style={after row=\bottomrule},
+ after row={\midrule}
+},
+every 2 row/.style={after row=\midrule},
+every last row/.style={after row=\bottomrule},
+every first column/.style={column type/.add={|}{}},
+every last column/.style={column type/.add={}{|}},
+display columns/1/.style={column name={mass\si{kilo\gram}},string type},
+display columns/3/.style={column name={$\bar{\rho}$\si{\gram\per\cubic\cm}},clear infinite},
+display columns/2/.style={column name={R\si{\kilo\meter}},clear infinite},
+display columns/4/.style={column name={$g_s\si{\meter\per\square\second}$},clear infinite},
+display columns/5/.style={column name={$J_2$},string type},
+display columns/planets/.style={column name={pianeta},string type},
+create on use/planets/.style={create col/set list={Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune}},
+columns/planets/.style={string type},
+columns={planets, mass, rhomean, Rp, gs, j2},
+/pgf/number format/precision=2
+     ]{solarsystemmain-pc.txt} %%%
+%\captionof{table}{}\label{tab:}
+\end{table}
+\begin{columns}[T]  \begin{column}{0.5\textwidth}\begin{itemize}\item regularity stability: \SI{100}{\mega\year} (inner), \SI{1}{\giga\year} (outer)\end{itemize}
+ \end{column} \begin{column}{0.5\textwidth}\end{column}  \end{columns}
+
+\end{frame}
+
+\begin{wordonframe}{alcune caretteristiche pianeti}
+
+\end{wordonframe}
+
+\begin{frame}{Sistema solare: pianeti nani}
+\pgfplotstableread{asteroids.txt}\asteroids
+\pgfplotstableread{dwarfplanets.txt}\dwarfplanets
+\begin{block}{Asteroidi}
+\begin{table}[!ht]
+\pgfplotstabletypeset[skip rows between index={1}{27},
+every head row/.style={
+ %before row={},
+ %every last row/.style={after row=\bottomrule},
+ after row={\midrule}
+},
+every 2 row/.style={after row=\midrule},
+every last row/.style={after row=\bottomrule},
+every first column/.style={column type/.add={|}{}},
+every last column/.style={column type/.add={}{|}},
+%columns/0/.style = {column type/.add={|}{}},
+%columns/5/.style = {column type/.add={|}{}},
+%columns/0/.style={string type},
+display columns/0/.style={column name={Asteroid},string type},
+display columns/1/.style={column name={R (Km)},string type},
+display columns/2/.style={column name={mass \SI{e15}{\kilo\gram}},string type},
+display columns/3/.style={column name={$P_{rot} (hrs)$},clear infinite},
+display columns/4/.style={column name={P (yrs)},clear infinite},
+display columns/5/.style={column name={a},clear infinite},
+display columns/6/.style={column name={e},clear infinite},
+display columns/7/.style={column name={i (deg)},clear infinite},
+columns={name, R, mass, spin, P, a, e, i},
+/pgf/number format/precision=3
+     ]{\asteroids} %%%
+%\captionof{table}{Caratteristiche pianeti terrestri.}\label{tab:terrestrial planets}
+\end{table}
+\end{block}
+\begin{block}{plutini}
+\begin{table}[!ht]
+\pgfplotstabletypeset[every head row/.style={
+ %before row={},
+ %every last row/.style={after row=\bottomrule},
+ after row={\midrule}
+},
+every 2 row/.style={after row=\midrule},
+every last row/.style={after row=\bottomrule},
+every first column/.style={column type/.add={|}{}},
+every last column/.style={column type/.add={}{|}},
+%columns/0/.style = {column type/.add={|}{}},
+%columns/5/.style = {column type/.add={|}{}},
+%columns/0/.style={string type},
+display columns/0/.style={column name={name},string type},
+display columns/1/.style={column name={R (Km)},clear infinite},
+display columns/2/.style={column name={mass(Earth)},string type},
+display columns/3/.style={column name={a},clear infinite},
+display columns/4/.style={column name={e},clear infinite},
+display columns/5/.style={column name={i (deg)},clear infinite},
+columns={name, D, mass, a, e, i},
+/pgf/number format/precision=3
+     ]{\dwarfplanets} %%%
+%\captionof{table}{}\label{tab:}
+\end{table}
+\end{block}
+
+\end{frame}
+
+\begin{wordonframe}{classificazione: pianeti sistema solare}
+Un pianeta ha le seguenti caratteristiche
+\begin{itemize}
+    \item \'E in orbita attorno ad una stella di riferimento.
+    \item \'E abbastanza massiccio da essere dominato dalle forze di gravit\'a: forma di equilibrio ''idrostatica''.
+        \item Ha completamente ripulito la regione del sistema intorno alla sua orbita. Altrimenti \'e un pianeta nano.
+\end{itemize}
+
+\end{wordonframe}
+
+
+\subsection{Bilancio energetico. Temperatura efficace/Radiative transfer}
+
+\begin{frame}{Bilancio energetico}
+Bilancio energetico: sorgenti energetiche, equilibrio radiativo, luminosit\'a pianeta.
+
+Suppongo una distribuzione uniforme sulla superficie del pianeta.
+
+La temperatura efficace del pianeta nell’approssimazione di corpo nero
+\begin{align*}
+&4\pi R_P^2\sigma T_{eff,P}^4=(1-A)\frac{L^*R_P^2}{4r_{P*}^2}\\
+&=(1-A)\frac{\pi R_*^2T_{eff,*}^4}{r_{P*}^2}R_P^2\\
+&T_{eff,P}=(\frac{1-A}{A})\expy{\frac{1}{4}}(\frac{R_*}{r_{P*}})\expy{\frac{1}{2}}T_{eff,*}
+\end{align*}
+
+Approssimazioni successive
+\begin{itemize}
+    \item Correzione all’approssimazione di corpo nero: corpo grigio. Tengo conto degli effetti di riflessione (corpo nero: assorbimento perfetto).
+    \item Differenza di temperatura tra regioni illuminate e non del pianeta: modello termico. Regioni polari meno illuminate cio\'e pi\'u fredde: \'e vero se l’asse di rotazione \'e ortogonale al piano dell’orbita (non vale per Urano).
+    
+    Per corpi con rotazione veloce o con atmosfera l’escursione termica \'e modesta.
+    
+    Equilibrio termico locale. Nel punto della superficie in cui il Sole \'e allo zenit: $T_{s*}=(\frac{R_*}{r_{P*}})\expy{\frac{1}{2}}T_{eff,*}$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Modello planetario}
+Modello di pianeta (equazioni fondamentali)
+\end{frame}
+
+\begin{frame}{Constrain Modello}
+Constrains osservativi
+\end{frame}
