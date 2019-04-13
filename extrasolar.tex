@@ -15,7 +15,7 @@ constrain on migration scenario: runaway migration
 
 \begin{frame}{Alcune propriet\'a di esopianeti}
 \begin{table}[!ht]
-\pgfplotstabletypeset[skip rows between index={0}{4},
+\pgfplotstabletypeset[skip rows between index={4}{10},
 every head row/.style={
  %before row={},
  %every last row/.style={after row=\bottomrule},
@@ -28,14 +28,14 @@ every head row/.style={
 %columns/0/.style = {column type/.add={|}{}},
 %columns/5/.style = {column type/.add={|}{}},
 %columns/0/.style={string type},
-display columns/1/.style={column name={number},clear infinite},
+display columns/0/.style={column name={number},clear infinite},
 %display columns/2/.style={column name={e},clear infinite},
 %display columns/3/.style={column name={i},clear infinite},
 %display columns/4/.style={column name={$\tau_{sid}$},clear infinite},
 %display columns/5/.style={column name={obliquity},clear infinite},
 %display columns/planets/.style={column name={pianeta},string type},
 %create on use/planets/.style={create col/set list={Mercury, Venus, Earth, Mars,Jupiter,Saturn,Uranus, Neptune}},
-columns/planets/.style={string type},
+%columns/planets/.style={string type},
 columns={numname},
 %columns={planets, dps, e, i, Ps, obl},
 /pgf/number format/precision=3
