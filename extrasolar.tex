@@ -13,6 +13,37 @@ constrain on migration scenario: runaway migration
 
 \section{Osservazioni}
 
+\begin{frame}{Alcune propriet\'a di esopianeti}
+\begin{table}[!ht]
+\pgfplotstabletypeset[skip rows between index={0}{4},
+every head row/.style={
+ %before row={},
+ %every last row/.style={after row=\bottomrule},
+ after row={\midrule}
+},
+%every 2 row/.style={after row=\midrule},
+%every last row/.style={after row=\bottomrule},
+%every first column/.style={column type/.add={|}{}},
+%every last column/.style={column type/.add={}{|}},
+%columns/0/.style = {column type/.add={|}{}},
+%columns/5/.style = {column type/.add={|}{}},
+%columns/0/.style={string type},
+display columns/1/.style={column name={number},clear infinite},
+%display columns/2/.style={column name={e},clear infinite},
+%display columns/3/.style={column name={i},clear infinite},
+%display columns/4/.style={column name={$\tau_{sid}$},clear infinite},
+%display columns/5/.style={column name={obliquity},clear infinite},
+%display columns/planets/.style={column name={pianeta},string type},
+%create on use/planets/.style={create col/set list={Mercury, Venus, Earth, Mars,Jupiter,Saturn,Uranus, Neptune}},
+columns/planets/.style={string type},
+columns={numname},
+%columns={planets, dps, e, i, Ps, obl},
+/pgf/number format/precision=3
+     ]{exoplanets.csv}
+\end{table}
+\end{frame}
+
+
 \begin{wordonframe}{extrasolar: problemi aperti}
 Distinzione pianeta/brown dwarf: $M_P\leq20M_J$, i pianeti veri e propri hanno masse $M_P\leq13M_J$.
 Domande fondamentali:
@@ -194,6 +225,8 @@ Equazione di stato: $P\propto\rho\expy{\gamma}$, $\gamma=1+\frac{1}{n}$; una rel
 \end{frame}
 
 \section{Orbital evolution}
+
+\subsection{Propriet\'a orbitali}
 
 \subsection{Hot Jupiters due to tidal circularization}
 
